@@ -1,0 +1,47 @@
+package org.pranav.dao;
+
+import static org.pranav.util.DBUtils.openConnection;
+import static org.pranav.util.DBUtils.openPreparedStatement;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.pranav.pojos.Employee;
+
+public class EmployeeDaoImp implements IEmployeeDao {
+	// state: instance vars
+	private Connection cn;
+	private PreparedStatement pst1;
+
+	public EmployeeDaoImp() throws SQLException {
+		// TODO Auto-generated constructor stub
+		cn = openConnection("person");
+		pst1 = openPreparedStatement(
+				"Select id, name, salary, join_date from emp where deptid=? and join_date between ? and ? ");
+
+		System.out.println("emp dao is created...");
+	}
+
+	@Override
+	public List<Employee> getSelectedEmpDetails(String dept, Date beginDate, Date endDate) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// add a method to clean up db reso
+	public void cleanUp() throws SQLException {
+		if (pst1 != null) {
+			pst1.close();
+		}
+		if (cn != null) {
+			cn.close();
+		}
+		
+		System.out.println("emp dao clean up!");
+
+	}
+
+}

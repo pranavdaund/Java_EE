@@ -1,0 +1,28 @@
+package org.pranav.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import static org.pranav.util.DBUtils.openConnection;;
+import org.pranav.pojos.Employee;
+
+public class EmployeeDaoImp implements IEmployeeDao {
+	// state: instance vars
+	private Connection cn;
+	private PreparedStatement pst1;
+
+	public EmployeeDaoImp() {
+		// TODO Auto-generated constructor stub
+		cn = openconnection();
+	}
+
+	@Override
+	public List<Employee> getSelectedEmpDetails(String dept, Date beginDate, Date endDate) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

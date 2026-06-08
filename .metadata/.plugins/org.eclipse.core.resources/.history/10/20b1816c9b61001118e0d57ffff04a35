@@ -1,0 +1,57 @@
+package org.pranav.tester;
+
+import static org.pranav.util.DBUtils.openConnection;
+import static org.pranav.util.DBUtils.openPreparedStatement;
+import static org.pranav.util.DBUtils.openexecuteQuery;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class TestPreparedStatement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String sql = "select * from emp where deptid=? and join_date > ? order by salary";
+		try (Scanner sc = new Scanner(System.in);
+				Connection cn = openConnection();
+				PreparedStatement prepst = openPreparedStatement(sql);) {
+
+			System.out.println("Enter deptId");
+			String deptid = sc.next();
+
+			System.out.println("Enter the Date(yy-mm-dd)");
+			String date = sc.next();
+			Date joinDate = Date.valueOf(date);
+
+			// set in parameter in ? 's
+			// parameter start from 1 onworlds and counting from left to right
+
+			prepst.setString(1, deptid);
+			prepst.setDate(2, joinDate);
+
+			try (ResultSet rst = openexecuteQuery();) {
+				System.out.println(cn);
+				System.out.println(prepst);
+				while (rst.next()) {
+//					System.out.printf("Emp Id %d Name %s Address %s Salary %.1f DeptId %s Join Date %s %n", rst.getInt(1),
+//							rst.getString(2), rst.getString(3), rst.getDouble(4), rst.getString(5), rst.getDate(6));
+					System.out.println("Emp id: " + rst.getInt(1) + ", Name: " + rst.getString(2) + ", Address: "
+							+ rst.getString(3));
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

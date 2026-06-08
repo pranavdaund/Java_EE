@@ -1,0 +1,7 @@
+package org.pranav.util;
+
+public class DBUtils {
+	
+	private static Connection cn;
+
+}

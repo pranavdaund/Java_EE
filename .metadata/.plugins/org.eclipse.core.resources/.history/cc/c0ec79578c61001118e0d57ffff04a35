@@ -1,0 +1,30 @@
+package org.pranav.tester;
+
+import static org.pranav.util.DBUtils.openConnection;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class TestStatement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try (Connection conn = openConnection();
+				Statement st = conn.createStatement();
+				ResultSet rst = st.executeQuery("Select * from emp2")) {
+			
+			while(rst.next()) {
+				System.out.printf("Emp Id %d Name %s Address %s Salary %.1f DeptId");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

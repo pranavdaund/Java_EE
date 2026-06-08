@@ -1,0 +1,8 @@
+package org.pranav.dao;
+
+public interface IEmployeeDao {
+/*
+ * Display details (id, name, salary, joindate) of all emps from a specific dept,
+ * joined between start date and end date
+ */
+}

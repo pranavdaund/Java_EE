@@ -1,0 +1,15 @@
+package org.pranav.dao;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.pranav.pojos.Employee;
+
+public interface IEmployeeDao {
+	/*
+	 * Display details (id, name, salary, joindate) of all emps from a specific
+	 * dept, joined between start date and end date
+	 */
+	List<Employee> getSelectedEmpDetails(String dept, Date beginDate, Date endDate) throws SQLException;
+}

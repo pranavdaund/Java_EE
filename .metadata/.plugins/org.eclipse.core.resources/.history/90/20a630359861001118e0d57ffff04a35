@@ -1,0 +1,28 @@
+package org.pranav.tester;
+
+import static org.pranav.util.DBUtils.openConnection;
+import static org.pranav.util.DBUtils.openPreparedStatement;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class TestPreparedStatement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String sql = "select * from emp where deptid=? and join_date > ? order by salary";
+		try (Scanner sc = new Scanner(System.in);
+				Connection cn = openConnection();
+				PreparedStatement prepst = openPreparedStatement(sql)) {
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

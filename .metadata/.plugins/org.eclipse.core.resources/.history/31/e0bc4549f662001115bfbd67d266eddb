@@ -1,0 +1,14 @@
+package org.pranav.pojos;
+
+import java.sql.Date;
+
+public class Employee {
+
+	private int empid;
+	private String name;
+	private String address;
+	private double salary;
+	private String deptId;
+	private Date joinDate;
+
+}

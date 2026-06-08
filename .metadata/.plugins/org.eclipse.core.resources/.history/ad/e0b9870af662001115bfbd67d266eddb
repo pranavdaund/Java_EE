@@ -1,0 +1,10 @@
+package org.pranav.pojos;
+
+public class Employee {
+	
+	private int empid;
+	private String name;
+	private 
+	
+
+}

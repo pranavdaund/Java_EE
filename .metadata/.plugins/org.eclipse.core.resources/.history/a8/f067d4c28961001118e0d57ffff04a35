@@ -1,0 +1,5 @@
+package org.pranav.util;
+
+public class DBUtils {
+
+}

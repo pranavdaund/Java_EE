@@ -1,0 +1,9 @@
+package org.pranav.util;
+
+import java.sql.Connection;
+
+public class DBUtils {
+
+	private static Connection cn;
+
+}

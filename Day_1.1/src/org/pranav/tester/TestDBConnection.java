@@ -1,0 +1,22 @@
+package org.pranav.tester;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class TestDBConnection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/webjava", "pranav",
+				"Pranav@2002")) {
+			System.out.println(connection);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
