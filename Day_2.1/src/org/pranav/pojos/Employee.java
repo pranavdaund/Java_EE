@@ -65,6 +65,15 @@ public class Employee {
 		this.joinDate = joinDate;
 	}
 
+	public Employee(String name, String address, double salary, String deptId, Date joinDate) {
+//		super();
+		this.name = name;
+		this.address = address;
+		this.salary = salary;
+		this.deptId = deptId;
+		this.joinDate = joinDate;
+	}
+
 	public Employee(int empid, String name, double salary, Date joinDate) {
 		super();
 		this.empid = empid;

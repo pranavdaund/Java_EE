@@ -1,0 +1,54 @@
+package org.pranav.pojos;
+
+public class Account {
+
+	private int account;
+	private String customerName;
+	private String acType;
+	private double balance;
+
+	public Account() {
+
+	}
+
+	public Account(int account, String customerName, String acType, double balance) {
+		super();
+		this.account = account;
+		this.customerName = customerName;
+		this.acType = acType;
+		this.balance = balance;
+	}
+
+	public int getAccount() {
+		return account;
+	}
+
+	public void setAccount(int account) {
+		this.account = account;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getAcType() {
+		return acType;
+	}
+
+	public void setAcType(String acType) {
+		this.acType = acType;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+}

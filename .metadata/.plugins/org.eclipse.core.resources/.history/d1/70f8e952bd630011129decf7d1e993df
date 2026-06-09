@@ -1,0 +1,14 @@
+package org.pranav.tester;
+
+import org.pranav.dao.AccountDaoImp;
+
+public class Tester2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		AccountDaoImp dao = new AccountDaoImp();
+
+	}
+
+}

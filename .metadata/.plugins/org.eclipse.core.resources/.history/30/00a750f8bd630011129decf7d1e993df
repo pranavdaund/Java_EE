@@ -1,0 +1,31 @@
+package org.pranav.tester;
+
+import java.util.Scanner;
+
+import org.pranav.dao.AccountDaoImp;
+
+public class Tester2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try (Scanner sc = new Scanner(System.in)) {
+			AccountDaoImp dao = new AccountDaoImp();
+			System.out.print("ENter source AccountNo: ");
+			int srcAcct = sc.nextInt();
+
+			System.out.print("ENter dest AccountNo: ");
+			int destAcct = sc.nextInt();
+
+			System.out.print("Enter Balance: ");
+			double balance = sc.nextDouble();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+
+			e.printStackTrace();
+		}
+
+	}
+
+}

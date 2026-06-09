@@ -1,0 +1,5 @@
+package org.pranav.dao;
+
+public class AccountDaoImp implements IAccountDao {
+
+}

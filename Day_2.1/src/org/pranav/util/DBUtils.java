@@ -24,42 +24,49 @@ public class DBUtils {
 		return cn;
 	}
 
-	public static Connection openConnection(String str) throws SQLException {
-		if (cn == null) {
-			String url = "jdbc:mysql://localhost:3306/" + str;
-			String username = "pranavdaund";
-			String password = "Pranav@2002";
-			cn = DriverManager.getConnection(url, username, password);
-		}
-		return cn;
-	}
+//	public static Connection openConnection(String str) throws SQLException {
+//		if (cn == null) {
+//			String url = "jdbc:mysql://localhost:3306/" + str;
+//			String username = "pranavdaund";
+//			String password = "Pranav@2002";
+//			cn = DriverManager.getConnection(url, username, password);
+//		}
+//		return cn;
+//	}
+//
+//	public static Statement openStatement() throws SQLException {
+//		if (st == null) {
+//			st = cn.createStatement();
+//		}
+//		return st;
+//	}
+//
+//	public static PreparedStatement openPreparedStatement(String sql) throws SQLException {
+//		if (prepst == null) {
+//			prepst = cn.prepareStatement(sql);
+//		}
+//		return prepst;
+//	}
 
-	public static Statement openStatement() throws SQLException {
-		if (st == null) {
-			st = cn.createStatement();
-		}
-		return st;
-	}
+//	public static ResultSet openExecuteQuery(String sql) throws SQLException {
+//		if (rst == null) {
+//			rst = st.executeQuery(sql);
+//		}
+//		return rst;
+//	}
+//
+//	public static ResultSet openExecuteQuery() throws SQLException {
+//		if (rst == null) {
+//			rst = prepst.executeQuery();
+//		}
+//		return rst;
+//	}
 
-	public static PreparedStatement openPreparedStatement(String sql) throws SQLException {
-		if (prepst == null) {
-			prepst = cn.prepareStatement(sql);
-		}
-		return prepst;
-	}
-
-	public static ResultSet openExecuteQuery(String sql) throws SQLException {
-		if (rst == null) {
-			rst = st.executeQuery(sql);
-		}
-		return rst;
-	}
-
-	public static ResultSet openExecuteQuery() throws SQLException {
-		if (rst == null) {
-			rst = prepst.executeQuery();
-		}
-		return rst;
-	}
-
+//	public static int openExecuteQuery() throws SQLException {
+//		int update;
+//		if (rst == null) {
+//			update = prepst.executeQuery();
+//		}
+//		return update;
+//	}
 }

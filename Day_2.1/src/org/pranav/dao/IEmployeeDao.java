@@ -3,6 +3,7 @@ package org.pranav.dao;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.pranav.pojos.Employee;
 
@@ -11,5 +12,19 @@ public interface IEmployeeDao {
 	 * Display details (id, name, salary, joindate) of all emps from a specific
 	 * dept, joined between start date and end date
 	 */
+
 	List<Employee> getSelectedEmpDetails(String dept, Date beginDate, Date endDate) throws SQLException;
+
+	// add a method to insert new emp details
+	String insertEmpDetails(Employee employee) throws SQLException;
+
+	// add a method to update emp's dept and salary
+	String updateEmpDetails(int empid, double salincr, String newDept) throws SQLException;
+
+	String deleteEmpDetails(int empid) throws SQLException;
+
+	double avgSalaryDept(String dept) throws SQLException;
+
+	Map<String, Double> avgSalaryDeptWise() throws SQLException;
+
 }

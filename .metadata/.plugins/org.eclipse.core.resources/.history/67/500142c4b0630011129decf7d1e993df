@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+package org.pranav.dao;
+
+/**
+ * 
+ */
+public interface IAccountDao {
+
+}

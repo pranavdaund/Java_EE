@@ -1,0 +1,64 @@
+package org.pranav.dao;
+
+import static org.pranav.util.DBUtils.openConnection;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+
+public class AccountDaoImp implements IAccountDao {
+
+	private Connection cn;
+	private CallableStatement cst1;
+
+	public AccountDaoImp() throws SQLException {
+		// get db cn from DBUtils
+
+		cn = openConnection();
+
+		// cst : to represent invocation of s stored proc
+		cst1 = cn.prepareCall("{ call transfer_funds(?,?,?,?,?)} ");
+
+		// register OUT parameter
+		// API of CST public void registerOutParameter(int parameterIndex,int sqlType)
+		// throws SQLException
+
+		cst1.registerOutParameter(4, Types.DOUBLE);
+		cst1.registerOutParameter(5, Types.DOUBLE);
+
+		System.out.println("aacount dao is created...");
+
+	}
+
+	@Override
+	public String transferFund(int srcAcctNo, int destAcctNo, double amount) throws SQLException {
+		// TODO Auto-generated method stub
+
+		// in sid int, in did int, in amt double, out sbal double, out dbal double
+
+		cst1.setInt(1, srcAcctNo);
+		cst1.setInt(2, destAcctNo);
+		cst1.setDouble(2, amount);
+
+		// execute stored procedure
+		boolean update = cst1.execute();
+
+		String ansstr = "Updated src Balance " + cst1.getDouble(4) + " Dest Balance " + cst1.getDouble(5);
+
+		return ansstr;
+	}
+
+	// add a method clean up db resources
+	public void cleanUp() throws SQLException {
+		if (cst1 != null) {
+			cst1.close();
+		}
+
+		if (cn != null) {
+			cn.close();
+
+		}
+	}
+
+}

@@ -1,0 +1,9 @@
+
+package org.pranav.dao;
+
+public interface IAccountDao {
+
+	//add a method to transfer funds src -> dest a/c
+	
+	
+}

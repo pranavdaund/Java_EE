@@ -1,0 +1,17 @@
+package org.pranav.dao;
+
+import java.sql.SQLException;
+
+public class AccountDaoImp implements IAccountDao {
+	
+
+	@Override
+	public String transferFund(int srcAcctNo, int destAcctNo, double amount) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+	
+	
+
+}

@@ -1,0 +1,28 @@
+package org.pranav.dao;
+
+import static org.pranav.util.DBUtils.openConnection;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class AccountDaoImp implements IAccountDao {
+
+	private Connection cn;
+	private CallableStatement cst1;
+
+	public AccountDaoImp() throws SQLException {
+		// TODO Auto-generated constructor stub
+		cn = openConnection();
+		cst1 = cn.prepareCall("{ call transfer_funds(?,?,?,?,?)} ")
+		
+	}
+
+	@Override
+	public String transferFund(int srcAcctNo, int destAcctNo, double amount) throws SQLException {
+		// TODO Auto-generated method stub
+
+		return null;
+	}
+
+}

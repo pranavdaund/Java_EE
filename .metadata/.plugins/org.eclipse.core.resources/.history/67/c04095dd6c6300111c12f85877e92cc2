@@ -1,0 +1,122 @@
+package org.pranav.tester;
+
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+import org.pranav.dao.EmployeeDaoImp;
+import org.pranav.pojos.Employee;
+
+public class Tester1 {
+
+	public static void main(String[] args) {
+
+		try (Scanner sc = new Scanner(System.in)) {
+			EmployeeDaoImp dao = new EmployeeDaoImp();
+			boolean exit = false;
+			while (!exit) {
+				System.out.println("1.Get Emp Details " + "\n2.Insert Emp Details " + "\n3.update Emp Salary and Dept "
+						+ "\n4.Deleted Emp " + "\n5.Average Salary Dept Wise" + "\n10.Exit");
+				try {
+					System.out.print("Choice option: ");
+					switch (sc.nextInt()) {
+					case 1:
+						System.out.println("Enter deptId: ");
+						String deptId = sc.next();
+
+						System.out.println("Enter begin_Date(yy-mm-dd): ");
+						Date beginDate = Date.valueOf(sc.next());
+
+						System.out.println("Enter end_date(yy-mm-dd): ");
+						Date endDate = Date.valueOf(sc.next());
+						List<Employee> empList = dao.getSelectedEmpDetails(deptId, beginDate, endDate);
+
+						empList.forEach(System.out::println);
+						break;
+
+					case 2: {
+						System.out.println("Enter emp Details");
+						System.out.print("Enter Emp Name: ");
+						String name = sc.next();
+
+						System.out.print("Enter Emp Address: ");
+						String address = sc.next();
+
+						System.out.print("Enter emp Salary: ");
+						double salary = sc.nextDouble();
+
+						System.out.print("Enter emp deptid: ");
+						String deptid = sc.next();
+
+						System.out.print("Enter emp join Date (yy-mm-dd): ");
+						Date joinDate = Date.valueOf(sc.next());
+
+						String updateinfo = dao.insertEmpDetails(new Employee(name, address, salary, deptid, joinDate));
+						System.out.println(updateinfo);
+
+						break;
+					}
+
+					case 3: {
+						// int empid, double salincr, String newDept
+						System.out.println("Enter emp id");
+						int id = sc.nextInt();
+
+						System.out.println("Enter emp updated Salary ");
+						double salary = sc.nextDouble();
+
+						System.out.println("Enter emp updated dept ");
+						String dept = sc.next();
+
+						String updateInfo = dao.updateEmpDetails(id, salary, dept);
+						System.out.println(updateInfo);
+
+						break;
+
+					}
+
+					case 4: {
+						System.out.println("Enter emp the id for delete: ");
+						int id = sc.nextInt();
+						String updateInfo = dao.deleteEmpDetails(id);
+						System.out.println(updateInfo);
+						break;
+					}
+
+					case 5: {
+						System.out.println("Average Salary dept wise group by:");
+						Map<String, Double> map = dao.avgSalaryDeptWise();
+						
+
+					}
+
+					case 10:
+						exit = true;
+						dao.cleanUp();
+						break;
+
+					case 11: {
+						System.out.println("Enter Dept: ");
+						String dept = sc.next();
+						double avg = dao.avgSalaryDept(dept);
+						System.out.println("Average is " + avg + " of dept " + dept);
+						break;
+					}
+					default:
+						break;
+					}
+
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+	}
+
+}

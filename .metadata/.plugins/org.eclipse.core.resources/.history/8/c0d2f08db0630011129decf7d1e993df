@@ -1,0 +1,10 @@
+package org.pranav.pojos;
+
+public class Account {
+
+	private int account;
+	private String customerName;
+	private String acType;
+	private double balance;
+
+}
